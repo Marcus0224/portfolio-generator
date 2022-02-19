@@ -26,12 +26,28 @@ const inquirer = require('inquirer');
       {
         type: 'input',
         name: 'name',
-        message: "what is your name"
+        message: "what is your name?",
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log('Please enter your name!');
+            return false;
+          }
+        }
       },
       {
         type: 'input',
         name: 'github',
-        message: 'Enter your GitHub Username'
+        message: 'Enter your GitHub Username',
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log('Enter you Github Username');
+            return false;
+          }
+        }
       },
       {
         type: 'input',
@@ -58,12 +74,28 @@ const inquirer = require('inquirer');
       {
         type: 'input',
         name: 'name',
-        message: 'What is the name of the project?'
+        message: 'What is the name of the project?',
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log('Enter name of project');
+            return false;
+          }
+        }
       },
       {
         type: 'input',
         name: 'description',
-        message: "Provide a description of the project (Required)"
+        message: "Provide a description of the project (Required)",
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          }else {
+            console.log('enter Project description');
+            return false;
+          }
+        }
       },
       {
         type: 'checkbox',
@@ -75,7 +107,14 @@ const inquirer = require('inquirer');
         type: 'input',
         name: 'link',
         message: 'Enter the Githib link to your project. (Required)',
-        default: false
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log('enter project Github link');
+            return false;
+          }
+        }
       },
       {
         type: 'confirm',
