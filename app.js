@@ -11,16 +11,6 @@ const inquirer = require('inquirer');
 //   console.log('Portfolio complete! Check out index.html to see the output!');
 // });
 
-// inquirer
-//   .prompt([
-//     {
-//       type:'input',
-//       name: 'name',
-//       message: 'What is your name?'
-//     }
-//   ])
-//   .then(answers => console.log(answers));
-
   const promptUser = () => {
     return inquirer.prompt([
       {
@@ -50,9 +40,22 @@ const inquirer = require('inquirer');
         }
       },
       {
+        type: 'confirm',
+        name: 'confirmAbout',
+        message: 'would you liek to enter some information about yourself for an "About" ssection?',
+        default: true
+      },
+      {
         type: 'input',
         name: 'about',
-        message: 'Provide some information about yourself:'
+        message: 'Provide some information about yourself:',
+        when: ({confirmAbout}) => {
+          if (confirmAbout) {
+            return true;
+          } else {
+            return false;
+          }
+        }
       }
     ]);
   };
